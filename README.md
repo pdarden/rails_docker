@@ -61,11 +61,23 @@ host: <%= ENV['DB_HOST'] %>
 ```
 
 # Up and Running
-Run
+* Spinning up the rails server:
 ```
 $ docker-compose up
 ```
  and visit http://localhost:3000
+* Running commands:
+```
+$ docker-compose run web <<commands>>
+```
+E.g., 
+```
+$ docker-compose run web bin/rails c
+```
+* Running bash to interact with the directory inside the web service container:
+```
+$ docker-compose run web bash
+```
 
 # Useful commands
 * `docker-compose build`, build image when `Dockerfile` changes or when you want
