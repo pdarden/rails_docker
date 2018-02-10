@@ -46,40 +46,57 @@ Build image again:
 $ docker-compose build
 ```
 
-
 ## Existing Project
-Just add `Dockerfile` and `docker-compose.yml` to your project and run
+Just add `Dockerfile`, `docker-compose.yml`, and `run.sh` to your project and run
 ```
 $ docker-compose build
 ```
-
 # Connecting the Database
-In `config/database.yml`
+In `config/database.yml` replace the file with this content (feel free to rename the database, see `<<my_app_name>>`):
 ```
-# Replace `host: localhost` with
-host: <%= ENV['DB_HOST'] %>
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DB_HOST") %>
+development:
+  <<: *default
+  database: <<my_app_name>>_development
+test:
+  <<: *default
+  database: <<my_app_name>>_test
+production:
+  <<: *default
+  database: <<my_app_name>>_production
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
 ```
 
 # Up and Running
+* Setup the database for your project:
+```
+$ docker-compose run web rake db:create
+$ docker-compose run web rake db:migrate
+```
+* Make `run.sh` excutable:
+```
+$ chmod +x run.sh
+```
 * Spinning up the rails server:
 ```
 $ docker-compose up
 ```
- and visit http://localhost:3000
-* Running commands:
-```
-$ docker-compose run web <<commands>>
-```
-E.g., 
+**Note:** This will excute the commands in `run.sh`
+* Visit http://localhost:3000
+
+# Useful commands
+* `docker-compose run web <<commands>>`, runs commands in web service container
+E.g.,
 ```
 $ docker-compose run web bin/rails c
 ```
-* Running bash to interact with the directory inside the web service container:
-```
-$ docker-compose run web bash
-```
-
-# Useful commands
+* `docker-compose run web bash`, runs bash to interact with the directory inside the web service container
 * `docker-compose build`, build image when `Dockerfile` changes or when you want
   to update or add gems.
 * `docker-compose up`, starts up containers.
