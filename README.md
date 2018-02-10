@@ -12,8 +12,13 @@ $ git clone git@github.com:pdarden/railsbridgenyc_docker.git
 ```
 
 Create your project directory:
+* Remove git remote
 ```
-$ mkdir my_new_project && cd my_new_project
+$ git remote remove origin
+```
+* Change directory name
+```
+$ cd .. && mv railsbridgenyc_docker <<new_project_name>> && cd <<new_project_name>>
 ```
 
 Create a bootstrap `Gemfile` which just loads Rails:
