@@ -1,7 +1,16 @@
+# RailsBridge NYC Docker
+Develop Ruby on Rails with Docker!
+
+* Ruby 2.5.0
+* Rails 5.1.4
+
+# Prerequisite
+Install Docker for your machine [here](https://www.docker.com/community-edition#/download).
+
 # Steps
-1. Setup Docker
-1. Connecting the Database
-1. Up and Running
+1. [Setup Docker](#setup-docker)
+1. [Connecting the Database](#connecting-the-database)
+1. [Up and Running](#up-and-running)
 
 # Setup Docker
 ## Building a new project
@@ -51,6 +60,7 @@ Just add `Dockerfile`, `docker-compose.yml`, and `run.sh` to your project and ru
 ```
 $ docker-compose build
 ```
+
 # Connecting the Database
 In `config/database.yml` replace the file with this content (feel free to rename the database, see `<<my_app_name>>`):
 ```
@@ -88,7 +98,7 @@ $ chmod +x run.sh
 $ docker-compose up
 ```
 **Note:** This will excute the commands in `run.sh`
-* Visit http://localhost:3000
+* Visit http://localhost:3000  :rocket:
 
 # Useful commands
 * `docker-compose run web <<commands>>`, runs commands in web service container
