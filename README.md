@@ -69,7 +69,7 @@ $ docker-compose up
 * `docker-compose up -d`, starts up containers **in the background**.
 * `docker-compose down`, stops containers.
 * `docker-compose ps`, view container processes, container name, container id.
-* `docker attach <<contianer_name>>`, attach container to interact with.
+* `docker attach <<contianer_name>>`, attach container to interact with
   `binding.pry`. `Control + p` `Control + q `, detach from container.
 
 # Guides
