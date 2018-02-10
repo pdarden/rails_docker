@@ -62,6 +62,16 @@ $ docker-compose up
 ```
  and visit http://localhost:3000
 
+# Useful commands
+* `docker-compose build`, build image when `Dockerfile` changes or when you want
+  to update or add gems.
+* `docker-compose up`, starts up containers.
+* `docker-compose up -d`, starts up containers **in the background**.
+* `docker-compose down`, stops containers.
+* `docker-compose ps`, view container processes, container name, container id.
+* `docker attach <<contianer_name>>`, attach container to interact with.
+  `binding.pry`. `Control + p` `Control + q `, detach from container.
+
 # Guides
 * [https://docs.docker.com/compose](https://docs.docker.com/compose)
 * [https://docs.docker.com/compose/rails/#build-the-project](https://docs.docker.com/compose/rails/#build-the-project)
