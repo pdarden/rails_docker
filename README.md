@@ -12,8 +12,10 @@ Install Docker for your machine [here](https://www.docker.com/community-edition#
 1. [Connecting the Database](#connecting-the-database)
 1. [Up and Running](#up-and-running)
 
-# Setup Docker
-## Building a new project
+## Setup Docker
+* [Building a new project](#building-a-new-project)
+* [Existing Project](#existing-project)
+#### Building a new project
 
 Clone this repo:
 ```
@@ -55,13 +57,13 @@ Build image again:
 $ docker-compose build
 ```
 
-## Existing Project
+#### Existing Project
 Just add `Dockerfile`, `docker-compose.yml`, and `run.sh` to your project and run
 ```
 $ docker-compose build
 ```
 
-# Connecting the Database
+## Connecting the Database
 In `config/database.yml` replace the file with this content (feel free to rename the database, see `<<my_app_name>>`):
 ```
 default: &default
@@ -83,7 +85,7 @@ production:
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
 ```
 
-# Up and Running
+## Up and Running
 * Setup the database for your project:
 ```
 $ docker-compose run web rake db:create
