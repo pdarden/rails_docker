@@ -1,4 +1,4 @@
-# RailsBridge NYC Docker
+# Rails Docker
 Develop Ruby on Rails with Docker!
 
 * Ruby 2.5.0
